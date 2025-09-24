@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-# This will copy all the env to their home
+if [ -z "$DEV_ENV" ]; then
+    echo "env var DEV_ENV needs to be present"
+    exit 1
+fi
+
+rsync -avc --itemize-changes "$DEV_ENV/" "$HOME/"
+

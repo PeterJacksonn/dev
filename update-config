@@ -1,9 +1,34 @@
 #!/usr/bin/env bash
 
-if [ -z "$DEV_ENV" ]; then
+set -euo pipefail
+
+if [ -z "${DEV_ENV:-}" ]; then
     echo "env var DEV_ENV needs to be present"
     exit 1
 fi
 
-rsync -avc --itemize-changes "$DEV_ENV/" "$HOME/"
+echo "[*] Syncing top-level home files..."
+top_output=$(rsync -avc --itemize-changes \
+    --exclude=".config/" \
+    "$DEV_ENV/" "$HOME/")
 
+if [ -n "$top_output" ]; then
+    echo "   -> changes in top-level files:"
+    echo "$top_output"
+else
+    echo "   -> no changes in top-level files"
+fi
+
+echo "[*] Syncing .config subdirectories..."
+for dir in "$DEV_ENV/.config/"*; do
+    name=$(basename "$dir")
+    output=$(rsync -avc --itemize-changes --delete "$dir/" "$HOME/.config/$name/")
+    if [ -n "$output" ]; then
+        echo "   -> changes in $name:"
+        echo "$output"
+    else
+        echo "   -> no changes in $name"
+    fi
+done
+
+echo "Dotfiles updated."

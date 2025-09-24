@@ -1,0 +1,28 @@
+theme = Rose Pine Moon
+background = 000000
+background-opacity = 0.85
+background-blur = false
+confirm-close-surface = true
+
+# normal font i usually use
+#font-family = "JetBrainsMono Nerd Font"
+
+# new font im trying out
+font-family = "Iosevka Comfy"
+
+font-size = 17
+
+# new terminals go to $HOME as they should...
+window-inherit-working-directory = false
+working-directory = home
+
+
+shell-integration-features = no-cursor,no-sudo,no-title
+gtk-titlebar = false
+
+# what is a prefix?
+# keybind = ctrl+d=scroll_page_fractional:0.5
+# keybind = ctrl+u=scroll_page_fractional:-0.5
+
+# Disable Ctrl+Enter fullscreen keybind
+keybind = ctrl+enter=unbind

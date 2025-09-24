@@ -1,0 +1,66 @@
+/* Elegant exit confirmation theme for rofi */
+
+* {
+    font: "JetBrains Mono Nerd Font 14";
+    background-color: transparent;
+    text-color: #e5e5e5;
+    border-color: #a6e3a1;
+}
+
+window {
+    background-color: rgba(30, 30, 46, 0.95);
+    border-radius: 14px;
+    border: 3px solid;
+    border-color: #a6e3a1;
+    padding: 32px 48px;
+}
+
+prompt {
+    text-color: #a6e3a1;
+    font: "JetBrains Mono Nerd Font Bold 16";
+    padding: 0px 0px 20px 0px;
+    margin: 0px 0px 15px 0px;
+}
+
+entry {
+    font: "JetBrains Mono Nerd Font Italic 14";
+    background-color: rgba(36, 40, 59, 0.85);
+    text-color: #f5d6fa;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin: 0px 0px 15px 0px;
+}
+
+element {
+    background-color: rgba(36, 40, 59, 0.85);
+    text-color: #e5e5e5;
+    font: "JetBrains Mono Nerd Font 14";
+    border-radius: 7px;
+    padding: 14px 0px;
+    margin: 8px 0px;
+}
+
+element selected {
+    background-color: #a6e3a1;
+    text-color: #1e1e2e;
+    border: 0px;
+}
+
+listview {
+    spacing: 6px;
+    margin: 0px 0px 20px 0px;
+}
+
+message {
+    background-color: transparent;
+    text-color: #f5d6fa;
+    font: "JetBrains Mono Nerd Font Italic 12";
+    margin: 12px 0px 0px 0px;
+}
+
+inputbar, textbox {
+    background-color: transparent;
+    text-color: #f5d6fa;
+}
+
+

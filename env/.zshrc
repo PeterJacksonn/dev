@@ -64,6 +64,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^ ' autosuggest-accept
 bindkey -s ^f "tmux-sessionizer\n"
 alias vim="nvim"
+alias asdfasdf='setxkbmap -option caps:swapescape'
 
 fvim() {
     local file

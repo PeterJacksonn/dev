@@ -51,7 +51,6 @@ plugins=(
     git
     zsh-autosuggestions
     archlinux
-    sudo
     docker-compose
     #syntax highlighting MUST be last sourced
     zsh-syntax-highlighting

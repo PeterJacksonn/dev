@@ -26,8 +26,7 @@ client.urgent           $ac-color $ac-color $fg-color $ac-color
 
 # caps lock is now escape :D
 
-if-shell '[ "$USER" = "pjackson" ]' \
-        exec --no-startup-id setxkbmap -option caps:swapescape
+exec --no-startup-id sh -c '[ "$(hostname)" = "dev-ws-13" ] && setxkbmap -option caps:swapescape'
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).

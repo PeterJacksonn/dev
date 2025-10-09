@@ -8,6 +8,14 @@ return {
       -- Uncomment this to get verbose logging to help diagnose internal Conjure issues
       -- This is VERY helpful when reporting an issue with the project
       -- vim.g["conjure#debug"] = true
+
+            vim.keymap.set("v", "<localleader>e", ":ConjureEvalVisual<CR>", {
+                silent = true,
+                noremap = true,
+                desc = "Conjure eval visual selection",
+            })
+
+
     end,
 
     -- Optional cmp-conjure integration

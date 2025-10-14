@@ -47,6 +47,7 @@ return {
                 "gopls",
                 "tailwindcss",
                 "clojure_lsp",
+                "cssls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

@@ -64,6 +64,10 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# file explorer like hyprland my beloved
+bindsym $mod+e exec --no-startup-id thunar
+
+
 # kill focused window
 bindsym $mod+c kill
 
@@ -117,7 +121,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+v floating toggle

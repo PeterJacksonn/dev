@@ -48,6 +48,7 @@ return {
                 "tailwindcss",
                 "clojure_lsp",
                 "cssls",
+                "basedpyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

@@ -1,6 +1,6 @@
 theme = Rose Pine Moon
 background = 000000
-background-opacity = 0.85
+background-opacity = 0.80
 background-blur = false
 confirm-close-surface = true
 

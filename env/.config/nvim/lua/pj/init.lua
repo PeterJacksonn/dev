@@ -36,17 +36,15 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd('BufEnter', {
-    group = PjGroup,
-    callback = function()
-        if vim.bo.filetype == "zig" then
-            pcall(vim.cmd.colorscheme, "tokyonight-night")
-        else
-            pcall(vim.cmd.colorscheme, "rose-pine-moon")
-        end
-    end
-})
+pcall(vim.cmd.colorscheme, "rose-pine-moon")
 
+local keywords = { "TODO", "ERROR", "WARNING" }
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next({ keywords = keywords })
+end, { desc = "Next TODO/ERROR/WARNING" })
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev({ keywords = keywords })
+end, { desc = "Previous TODO/ERROR/WARNING" })
 
 autocmd('LspAttach', {
     group = PjGroup,
@@ -60,8 +58,8 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
 

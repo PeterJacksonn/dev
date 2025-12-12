@@ -46,6 +46,32 @@ vim.keymap.set("n", "[t", function()
   require("todo-comments").jump_prev({ keywords = keywords })
 end, { desc = "Previous TODO/ERROR/WARNING" })
 
+-- NOTE this is a disgrace but just makes the theme picker always give
+-- transparent background using ColorMyPencils
+
+vim.keymap.set("n", "<leader>pc", function()
+    require("telescope.builtin").colorscheme({
+        enable_preview = true,
+        attach_mappings = function(prompt_bufnr, map)
+            local actions = require("telescope.actions")
+            local action_state = require("telescope.actions.state")
+
+            -- Override <CR> (enter) to apply transparency
+            actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection then
+                    ColorMyPencils(selection.value)
+                end
+            end)
+
+            return true
+        end,
+    })
+end, { desc = "Pick colorscheme (transparent)" })
+
+-- NOTE end of disgrace
+
 autocmd('LspAttach', {
     group = PjGroup,
     callback = function(e)

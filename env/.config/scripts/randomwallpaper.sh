@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR=~/personal/backgrounds
-CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+WALLPAPER_DIR="$HOME/personal/backgrounds"
 
-# Get a random wallpaper that is not the current one
-WALLPAPER=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+# Pick a random wallpaper (space-safe)
+WALLPAPER=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f | shuf -n 1)
 
-# Apply the selected wallpaper
-hyprctl hyprpaper reload ,"$WALLPAPER"
+# Apply to all monitors
+hyprctl monitors -j | jq -r '.[].name' | while read -r monitor; do
+    hyprctl hyprpaper wallpaper "$monitor,$WALLPAPER"
+done

@@ -11,7 +11,7 @@ function cacheImg {
     resolution=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$1")
     width_=$(echo "${resolution}" | awk -F',' '{print $1}')
     height_=$(echo "${resolution}" | awk -F',' '{print $2}')
-    
+
     if [ "$width_" -lt "$height_" ]; then
         ffmpeg -i "$1" -loglevel quiet -vf "scale=600:-1, crop=600:600:0:(ih-600)/2" "$2"
     else
@@ -67,6 +67,7 @@ selected=$(echo -en "$strrr" | sort | rofi -dmenu -i -no-layers -p "Select wallp
 # Set wallpaper via Hyprpaper
 if [[ -n "$selected" ]]; then
     fullpath="${bgresult[$selected]}"
-    hyprctl hyprpaper reload ",$fullpath"
+    hyprctl monitors -j | jq -r '.[].name' | while read -r monitor; do
+        hyprctl hyprpaper wallpaper "$monitor,$fullpath"
+    done
 fi
-

@@ -131,6 +131,7 @@ map <leader>M <Action>(Maven.ExecuteGoal)
 nmap gd <Action>(GotoDeclaration)
 nmap gi <Action>(GotoImplementation)
 nmap <Leader><BS> <action>(Stop)
+nmap <Leader>ai <Action>(ActivateAIAssistantToolWindow)
 
 " window split resizing woooo!
 " also Ctrl + ww is ez way to switch window instead of C-w h/l

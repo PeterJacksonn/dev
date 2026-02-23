@@ -13,6 +13,9 @@ exec_always --no-startup-id wal -R
 # Launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# picom for transparency etc
+exec_always --no-startup-id picom
+
 # Source pywal colors into i3
 set_from_resource $bg-color background
 set_from_resource $fg-color foreground

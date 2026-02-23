@@ -15,6 +15,7 @@ font-size = 17
 # new terminals go to $HOME as they should...
 window-inherit-working-directory = false
 working-directory = home
+window-decoration = server
 
 
 shell-integration-features = no-cursor,no-sudo,no-title

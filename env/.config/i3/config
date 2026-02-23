@@ -9,18 +9,30 @@ set $mod Mod1
 font pango:Iosevka Comfy 12px
 
 # Load pywal colors
-exec_always --no-startup-id wal -R
+# exec_always --no-startup-id wal -R
+# NO pywal for now!!
+
 # Launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # picom for transparency etc
 exec_always --no-startup-id picom
 
+# Set background
+exec_always --no-startup-id feh --bg-fill '/home/pj/backgrounds/treesandtreesbluepink.jpg'
+
+# dont want pywal for now!!!
 # Source pywal colors into i3
-set_from_resource $bg-color background
-set_from_resource $fg-color foreground
-set_from_resource $ac-color color1
-set_from_resource $highlight-color color4
+# set_from_resource $bg-color background
+# set_from_resource $fg-color foreground
+# set_from_resource $ac-color color1
+# set_from_resource $highlight-color color4
+
+# some rose pine moon colours
+set $bg-color #232136
+set $fg-color #e0def4
+set $ac-color #c4a7e7
+set $highlight-color #3e8fb0
 
 # Use the colors
 client.focused          $ac-color $ac-color $fg-color $highlight-color
@@ -74,7 +86,6 @@ bindsym $mod+Return exec ghostty
 
 # file explorer like hyprland my beloved
 bindsym $mod+e exec --no-startup-id dolphin
-
 
 # kill focused window
 bindsym $mod+c kill

@@ -70,7 +70,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec i3-sensible-terminal
 
 # file explorer like hyprland my beloved
-bindsym $mod+e exec --no-startup-id thunar
+bindsym $mod+e exec --no-startup-id dolphin
 
 
 # kill focused window

@@ -10,6 +10,11 @@ set scroll-full-overlap 0.01
 set scroll-step 0.01
 
 # maps
+unmap q
+unmap [normal] q
+unmap [presentation] q
+unmap [index] q
+
 map r reload
 # map p print
 map i recolor

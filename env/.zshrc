@@ -75,3 +75,4 @@ export PATH="$HOME/personal/repos/tmux-sessionizer:$PATH"
 
 # use nvim for git commits
 export GIT_EDITOR"nvim"
+export EDITOR="nvim"

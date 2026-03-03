@@ -17,4 +17,4 @@ selected=$(
 
 [[ -z "$selected" ]] && exit 0
 
-setsid -f zathura "$HOME/$selected"
+setsid -f sioyek "$HOME/$selected"

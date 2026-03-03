@@ -87,6 +87,9 @@ bindsym $mod+Return exec ghostty
 # file explorer like hyprland my beloved
 bindsym $mod+e exec --no-startup-id dolphin
 
+# PDF viewer opener
+bindsym $mod+p exec ghostty -e ~/.config/scripts/open-pdf.sh
+
 # kill focused window
 bindsym $mod+c kill
 

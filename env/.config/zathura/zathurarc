@@ -9,6 +9,8 @@ set scroll-page-aware "true"
 set scroll-full-overlap 0.01
 set scroll-step 0.01
 
+set incremental-search true
+
 # maps
 unmap q
 unmap [normal] q

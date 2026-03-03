@@ -1,77 +1,89 @@
 {
-  "layer": "top",
-  "position": "top",
-  "modules-left": [
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
         "hyprland/workspaces"
     ],
-  "modules-center": ["clock"],
-  "modules-right": [
-    "pulseaudio",
-    "battery",
-    "network",
-    "cpu",
-    "memory",
-    "tray",
-    "custom/nighttoggle",
-    "custom/wallpaperpick",
-    "custom/randopaper",
-    "custom/lock"
-  ],
-  "hyprland/workspaces": {
-    "format": "{name}: {icon}",
-    "format-icons": {
-      "active": "",
-      "default": ""
-    }
-  },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10
-  },
-  "clock": {
-    "timezone": "Europe/London",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%d - %H:%M}"
-  },
-  "network": {
-    "format-wifi": "󰤢 ",
-    "format-ethernet": "󰈀 HesWiredIn",
-    "format-disconnected": "󰤠 ",
-    "interval": 5,
-    "tooltip": false
-  },
-  "cpu": {
-    "interval": 1,
-    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
-  },
-  "memory": {
-    "interval": 30,
-    "format": "  {used:0.1f}G/{total:0.1f}G"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "default": ["", "", " "]
+    "modules-center": ["clock"],
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "network",
+        "cpu",
+        "memory",
+        "tray",
+        "custom/gamma",
+        "custom/nighttoggle",
+        "custom/wallpaperpick",
+        "custom/randopaper",
+        "custom/lock"
+    ],
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
     },
-    "on-click": "pavucontrol"
-  },
-  "custom/lock": {
-    "tooltip": false,
-    "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
-    "format": ""
-  },
-  "custom/nighttoggle": {
-    "format": "🌙",
-    "on-click": "~/.config/scripts/togglenightlight.sh"
-  },
-  "custom/wallpaperpick": {
-    "format": "🎨",
-    "on-click": "~/.config/scripts/wallpaper-picker.sh ~/.config/rofi/wallpaper.rasi"
-  },
-  "custom/randopaper": {
-    "format": "🎲",
-    "on-click": "~/.config/scripts/randomwallpaper.sh"
-  }
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "timezone": "Europe/London",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%d - %H:%M}"
+    },
+    "network": {
+        "format-wifi": "󰤢 ",
+        "format-ethernet": "󰈀 HesWiredIn",
+        "format-disconnected": "󰤠 ",
+        "interval": 5,
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    },
+    "memory": {
+        "interval": 30,
+        "format": "  {used:0.1f}G/{total:0.1f}G"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+        "format": ""
+    },
+    "custom/gamma": {
+        "exec": "printf '{\"text\":\"%d\",\"percentage\":%d}' $(printf '%.0f' \"$(hyprctl hyprsunset gamma)\") $(printf '%.0f' \"$(hyprctl hyprsunset gamma)\")",
+        "return-type": "json",
+        "signal": 8,
+        "format": "{icon} {text}%",
+        "format-icons": ["🌑","🌘","🌗","🌖","🌕"],
+        "tooltip": false,
+        "on-scroll-up": "hyprctl hyprsunset gamma +2 && pkill -RTMIN+8 waybar",
+        "on-scroll-down": "hyprctl hyprsunset gamma -2 && pkill -RTMIN+8 waybar",
+        "on-click": "hyprctl hyprsunset gamma 100 && pkill -RTMIN+8 waybar"
+    },
+    "custom/nighttoggle": {
+        "format": "🌙",
+        "on-click": "~/.config/scripts/togglenightlight.sh"
+    },
+    "custom/wallpaperpick": {
+        "format": "🎨",
+        "on-click": "~/.config/scripts/wallpaper-picker.sh ~/.config/rofi/wallpaper.rasi"
+    },
+    "custom/randopaper": {
+        "format": "🎲",
+        "on-click": "~/.config/scripts/randomwallpaper.sh"
+    }
 }

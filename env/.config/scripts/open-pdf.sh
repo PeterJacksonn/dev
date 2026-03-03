@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 DIRS=(
+    # for PC:
     "$HOME/Downloads"
     "$HOME/personal/sync/work"
+
+    # For laptop:
+    "$HOME/Sync"
 )
 
 selected=$(

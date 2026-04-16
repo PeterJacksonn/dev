@@ -9,6 +9,6 @@ zenity --question \
 
 # Check the response
 if [ $? -eq 0 ]; then
-    hyprctl dispatch exit
+    uwsm stop
 fi
 

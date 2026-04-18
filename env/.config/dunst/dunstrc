@@ -1,0 +1,35 @@
+[global]
+    width = 350
+    offset = (10, 10)
+    origin = top-right
+    transparency = 10
+    frame_width = 2
+    frame_color = "#89b4fa"
+    corner_radius = 8
+    font = Iosevka Comfy 11
+    line_height = 4
+    padding = 12
+    horizontal_padding = 14
+    gap_size = 6
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 48
+    follow = mouse
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#89b4fa"
+    timeout = 4
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#a6adc8"
+    frame_color = "#585b70"
+    timeout = 3
+
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#f38ba8"
+    frame_color = "#f38ba8"
+    timeout = 0

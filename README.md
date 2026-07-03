@@ -1,10 +1,23 @@
-## Dev env for setting up a new system / keeping dotfiles up to date
+# dev
 
-### Has all config for hyprland and i3 (PC / laptops)
+**My personal Linux environment.**
 
-### Uses a simple rsync script to keep dotfiles up to date
+Dotfiles and config for my Arch setup - Hyprland (PC) and i3 (Laptop & work dev machine).
 
----
+Includes configs for Neovim, tmux, Waybar, Polybar, Ghostty, Rofi and more.
 
-#### To use the update script, run the following from this repo's root:
-`DEV_ENV=env ./update-config`
+## Deploying
+
+Uses a Bash script with rsync to deploy configs to the right places:
+
+```bash
+DEV_ENV=env ./update-config
+```
+
+Run from the repo root. Set `DEV_ENV` to point at the env directory.
+
+## Keyboard
+
+For those curious about `kb_layout/` -- I daily drive a Sofle RGB running Vial:
+
+![Sofle RGB ](kb_layout/sofle.jpg)

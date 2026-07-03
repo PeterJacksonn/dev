@@ -18,7 +18,7 @@ Run from the repo root. Set `DEV_ENV` to point at the env directory.
 
 ## Keyboard
 
-For those curious about `kb_layout/` -- I daily drive a Sofle RGB running Vial:
+For those curious about `kb_layout/` - I daily drive a Sofle RGB I soldered myself, running Vial:
 
 ![Sofle RGB ](kb_layout/sofle.jpg)
 *Still yet to buy encoder knobs :P*

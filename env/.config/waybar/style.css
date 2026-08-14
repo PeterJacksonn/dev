@@ -1,41 +1,40 @@
 * {
-    /* font-family: JetbrainsMono Nerd Font; */
-    /*   font-size: 12px; */
     font-family: "Iosevka Comfy", "Iosevka Nerd Font";
     font-size: 14px;
     min-height: 0;
-    padding-right: 2px;
-    padding-left: 2px;
-    padding-bottom: 0px;
 }
 
 #waybar {
-    background: transparent;
+    background: rgba(16, 16, 16, 0.85);
     color: #c6d0f5;
-    margin: 2px 2px 0 2px;
+    margin: 6px 8px 0 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 #workspaces {
-    border-radius: 5px;
-    margin: 5px 5px 5px 5px;
-    background: #101010;
-    margin-left: 0rem;
+    margin: 4px 4px 4px 6px;
+    padding: 0;
+    background: transparent;
 }
 
 #workspaces button {
-    color: #babbf1;
-    border-radius: 5px;
-    padding: 0.4rem;
+    color: #6c7086;
+    padding: 0.3rem 0.85rem 0.3rem 0.55rem;
+    margin: 0 2px;
+    border-radius: 8px;
 }
 
 #workspaces button.active {
-    color: #99d1db;
-    border-radius: 5px;
+    color: #101010;
+    background: linear-gradient(135deg, #babbf1, #85c1dc);
+    font-weight: 700;
 }
 
 #workspaces button:hover {
     color: #85c1dc;
-    border-radius: 5px;
+    background: rgba(133, 193, 220, 0.1);
 }
 
 #custom-music,
@@ -53,20 +52,29 @@
 #custom-randopaper,
 #custom-lock,
 #custom-power {
-    background-color: #101010;
-    padding: 0.5rem 1rem;
-    margin: 5px 0px 5px 1px;
-    border-radius: 5px 5px 5px 5px;
+    background: transparent;
+    padding: 0.4rem 0.85rem;
+    margin: 4px 2px;
+    border-radius: 8px;
+    transition: background 0.25s ease-in-out;
 }
 
-#memory {
-    border-radius: 5px 5px 5px 5px;
+#custom-music:hover,
+#backlight:hover,
+#clock:hover,
+#battery:hover,
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover {
+    background: linear-gradient(135deg, rgba(202, 158, 230, 0.12), rgba(133, 193, 220, 0.12));
 }
 
 #clock {
     color: #8caaee;
-    border-radius: 5px;
-    margin-right: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-right: 0.75rem;
 }
 
 #battery {
@@ -85,35 +93,33 @@
     color: #e5c890;
 }
 
-#backlight,
-#battery {
-    border-radius: 0;
-}
-
 #pulseaudio {
     color: #ea999c;
-    border-radius: 5px;
-    margin-left: 1rem;
 }
 
 #custom-music {
     color: #ca9ee6;
-    border-radius: 5px;
 }
 
 #custom-lock {
-    border-radius: 5px;
     color: #babbf1;
+    margin-left: 0.75rem;
+}
+
+#custom-lock:hover {
+    background: rgba(186, 187, 241, 0.1);
 }
 
 #custom-power {
-    margin-left: 0rem;
-    border-radius: 5px;
     color: #e78284;
+    margin-right: 6px;
+}
+
+#custom-power:hover {
+    background: rgba(231, 130, 132, 0.12);
 }
 
 #tray {
-    margin-right: 1rem;
-    margin-left: 1rem;
-    border-radius: 5px;
+    padding: 0.4rem 0.85rem;
+    margin: 4px 6px 4px 2px;
 }

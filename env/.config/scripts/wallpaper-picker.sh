@@ -70,4 +70,5 @@ if [[ -n "$selected" ]]; then
     hyprctl monitors -j | jq -r '.[].name' | while read -r monitor; do
         hyprctl hyprpaper wallpaper "$monitor,$fullpath"
     done
+    ln -sf "$fullpath" "$HOME/.config/hypr/current_lock_bg"
 fi

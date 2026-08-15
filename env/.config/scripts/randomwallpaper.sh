@@ -9,3 +9,4 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f | shuf -n 1)
 hyprctl monitors -j | jq -r '.[].name' | while read -r monitor; do
     hyprctl hyprpaper wallpaper "$monitor,$WALLPAPER"
 done
+ln -sf "$WALLPAPER" "$HOME/.config/hypr/current_lock_bg"

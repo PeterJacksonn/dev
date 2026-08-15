@@ -16,6 +16,20 @@ configuration {
     sidebar-mode: false;
     prompt: "";
     alternate-row-color: false;
+
+
+    /* free up the keys rofi already claimed */
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-remove-to-eol: "";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-mode-complete: "";
+
+    /* now bind vim-style row navigation */
+    kb-row-up: "Control+k";
+    kb-row-down: "Control+j";
+    kb-row-left: "Control+h";
+    kb-row-right: "Control+l";
+
 }
 
 window {

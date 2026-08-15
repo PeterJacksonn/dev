@@ -5,6 +5,18 @@ configuration {
     display-drun: "Search";
     drun-display-format: "{name}";
     font: "Iosevka Comfy 12";
+
+    /* navigation */
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-remove-to-eol: "";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-row-up: "Control+k";
+    kb-row-down: "Control+j";
+    /* Change in the searchbox resets to hover over top result :) */
+    inputchange {
+        action: "kb-row-first";
+    }
+
 }
 
 * {

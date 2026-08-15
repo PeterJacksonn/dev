@@ -3,9 +3,9 @@
     offset = (10, 10)
     origin = top-right
     transparency = 10
-    frame_width = 2
-    frame_color = "#89b4fa"
-    corner_radius = 8
+    frame_width = 1
+    frame_color = "#babbf1"
+    corner_radius = 5
     font = Iosevka Comfy 11
     line_height = 4
     padding = 12
@@ -17,19 +17,19 @@
     follow = mouse
 
 [urgency_normal]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    frame_color = "#89b4fa"
+    background = "#101010"
+    foreground = "#c6d0f5"
+    frame_color = "#babbf1"
     timeout = 4
 
 [urgency_low]
-    background = "#1e1e2e"
-    foreground = "#a6adc8"
-    frame_color = "#585b70"
+    background = "#101010"
+    foreground = "#a5adce"
+    frame_color = "#3a3a3a"
     timeout = 3
 
 [urgency_critical]
-    background = "#1e1e2e"
-    foreground = "#f38ba8"
-    frame_color = "#f38ba8"
+    background = "#101010"
+    foreground = "#e78284"
+    frame_color = "#e78284"
     timeout = 0

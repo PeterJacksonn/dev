@@ -52,6 +52,7 @@ listview {
     spacing: 4px;
     scrollbar: false;
     fixed-height: true;
+    border: 0px;
 }
 
 element {

@@ -1,76 +1,101 @@
-*{
-    background: transparent;
-    background-alt: transparent;
+* {
+    bg:          rgba(16, 16, 16, 0.92);
+    fg:          #c6d0f5;
+    fg-dim:      #a5adce;
+    accent1:     #babbf1;
+    accent2:     #85c1dc;
+
     background-color: transparent;
-    foreground: transparent;
-    urgent:     transparent;
-    text-color: transparent;
+    text-color: @fg;
 }
 
-configuration{
-    font: "Noto Sans 20";
+configuration {
+    font: "Iosevka Comfy 12";
     show-icons: true;
-    location: 5;
+    location: 0;
     sidebar-mode: false;
-    prompt: "search: ";
+    prompt: "";
     alternate-row-color: false;
-    // background-color: rgba(50, 50, 50, 0.8);
-    fixed-height: false;
-    // alternate:false;
 }
 
+window {
+    width: 68%;
+    height: 78%;
+    background-color: @bg;
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+}
 
-listview{
-    spacing: 0px;
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 12px;
+    padding: 20px;
+}
+
+inputbar {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 5px;
+    padding: 10px 14px;
+    children: [ entry ];
+}
+
+entry {
+    placeholder: "Search wallpapers…";
+    placeholder-color: @fg-dim;
+    text-color: @fg;
+}
+
+listview {
+    columns: 5;
+    lines: 3;
+    flow: horizontal;
+    spacing: 16px;
     scrollbar: true;
-    overflow:true;
-    layout: horizontal;
-
+    layout: vertical;
     background-color: transparent;
+    border: 0px;
+    fixed-height: true;
+}
+
+element {
+    orientation: vertical;
+    padding: 4px;
+    margin: 0px;
+    spacing: 6px;
+    border-radius: 5px;
+}
+
+element normal.normal,
+element normal.urgent,
+element normal.active,
+element alternate.normal,
+element alternate.urgent,
+element alternate.active {
+    background-color: transparent;
+    text-color: @fg-dim;
+}
+
+element selected.normal,
+element selected.urgent,
+element selected.active {
+    background-color: rgba(186, 187, 241, 0.12);
+    border: 1px solid;
+    border-color: @accent1;
 }
 
 element-icon {
-    vertical-align: 0.0;
-    size:300px;
-
-    padding: 0px 0px;
-    margin: 0px;
-    spacing:0px 0px;
-    // background-color: rgba(50, 50, 50, 0.8);
-}
-
-
-element-text{
-    horizontal-align: 0.5;
     vertical-align: 0.5;
-    // border-radius: 4px;
-
-}
-element.alternate.normal{
+    horizontal-align: 0.5;
+    size: 190px;
+    border-radius: 5px;
     background-color: transparent;
 }
 
-element{
-    orientation: vertical;
-    height: 0px;
-    padding: 0px;
-    margin: 0px;
-    spacing:0px;
-    overflow: true;
+element-text {
+    background-color: transparent;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+    font: "Iosevka Comfy 10";
 }
-
-element-text selected {
-    enabled:false;
-
-    background-color: rgba(200, 200, 200, 0.8); /* light text highlight on dark bg */
-    text-color: rgba(50, 50, 50, 0.8);         /* dark text for contrast */
-}
-
-window{
-    width: 100%;
-    height: 38%;
-    background-color: rgba(30, 30, 30, 0.8);  /* main dark window */
-
-    border: 0px;
-}
-

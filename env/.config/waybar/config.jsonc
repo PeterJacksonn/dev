@@ -2,7 +2,8 @@
     "layer": "top",
     "position": "bottom",
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "mpris"
     ],
     "modules-center": ["clock"],
     "modules-right": [
@@ -85,5 +86,18 @@
     "custom/randopaper": {
         "format": "🎲",
         "on-click": "~/.config/scripts/randomwallpaper.sh"
+    },
+    "mpris": {
+        "player": "spotify",
+        "format": "{status_icon} {artist} - {title} <span size='small'>| {position}/{length}</span>",
+        "interval": 1,
+        "status-icons": {
+            "playing": "♪",
+            "paused": "⏸",
+            "stopped": "⏹"
+        },
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "playerctl -p spotify next",
+        "on-click-middle": "playerctl -p spotify previous"
     }
 }

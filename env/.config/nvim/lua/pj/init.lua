@@ -1,92 +1,103 @@
-require 'pj.set'
-require 'pj.remap'
-require 'pj.lazy_init'
-
+require("pj.set")
+require("pj.remap")
+require("pj.lazy_init")
 
 local augroup = vim.api.nvim_create_augroup
-local PjGroup = augroup('pj', {})
+local PjGroup = augroup("pj", {})
 
 local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup('HighlightYank', {})
+local yank_group = augroup("HighlightYank", {})
 
 function R(name)
-    require("plenary.reload").reload_module(name)
+	require("plenary.reload").reload_module(name)
 end
 
 vim.filetype.add({
-    extension = {
-        templ = 'templ',
-    }
+	extension = {
+		templ = "templ",
+	},
 })
 
-autocmd('TextYankPost', {
-    group = yank_group,
-    pattern = '*',
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = 'IncSearch',
-            timeout = 40,
-        })
-    end,
+autocmd("TextYankPost", {
+	group = yank_group,
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 40,
+		})
+	end,
 })
 
-autocmd({"BufWritePre"}, {
-    group = PjGroup,
-    pattern = "*",
-    command = [[%s/\s\+$//e]],
+autocmd({ "BufWritePre" }, {
+	group = PjGroup,
+	pattern = "*",
+	command = [[%s/\s\+$//e]],
 })
 
 pcall(vim.cmd.colorscheme, "rose-pine-moon")
-
-local keywords = { "TODO", "ERROR", "WARNING" }
-vim.keymap.set("n", "]t", function()
-  require("todo-comments").jump_next({ keywords = keywords })
-end, { desc = "Next TODO/ERROR/WARNING" })
-vim.keymap.set("n", "[t", function()
-  require("todo-comments").jump_prev({ keywords = keywords })
-end, { desc = "Previous TODO/ERROR/WARNING" })
 
 -- NOTE this is a disgrace but just makes the theme picker always give
 -- transparent background using ColorMyPencils
 
 vim.keymap.set("n", "<leader>pc", function()
-    require("telescope.builtin").colorscheme({
-        enable_preview = true,
-        attach_mappings = function(prompt_bufnr, map)
-            local actions = require("telescope.actions")
-            local action_state = require("telescope.actions.state")
+	require("telescope.builtin").colorscheme({
+		enable_preview = true,
+		attach_mappings = function(prompt_bufnr, map)
+			local actions = require("telescope.actions")
+			local action_state = require("telescope.actions.state")
 
-            -- Override <CR> (enter) to apply transparency
-            actions.select_default:replace(function()
-                actions.close(prompt_bufnr)
-                local selection = action_state.get_selected_entry()
-                if selection then
-                    ColorMyPencils(selection.value)
-                end
-            end)
+			-- Override <CR> (enter) to apply transparency
+			actions.select_default:replace(function()
+				actions.close(prompt_bufnr)
+				local selection = action_state.get_selected_entry()
+				if selection then
+					ColorMyPencils(selection.value)
+				end
+			end)
 
-            return true
-        end,
-    })
+			return true
+		end,
+	})
 end, { desc = "Pick colorscheme (transparent)" })
 
 -- NOTE end of disgrace
 
-autocmd('LspAttach', {
-    group = PjGroup,
-    callback = function(e)
-        local opts = { buffer = e.buf }
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-    end
+autocmd("LspAttach", {
+	group = PjGroup,
+	callback = function(e)
+		local opts = { buffer = e.buf }
+		vim.keymap.set("n", "gd", function()
+			vim.lsp.buf.definition()
+		end, opts)
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover()
+		end, opts)
+		vim.keymap.set("n", "<leader>vws", function()
+			vim.lsp.buf.workspace_symbol()
+		end, opts)
+		vim.keymap.set("n", "<leader>vd", function()
+			vim.diagnostic.open_float()
+		end, opts)
+		vim.keymap.set("n", "<leader>vca", function()
+			vim.lsp.buf.code_action()
+		end, opts)
+		vim.keymap.set("n", "<leader>vrr", function()
+			vim.lsp.buf.references()
+		end, opts)
+		vim.keymap.set("n", "<leader>vrn", function()
+			vim.lsp.buf.rename()
+		end, opts)
+		vim.keymap.set("i", "<C-h>", function()
+			vim.lsp.buf.signature_help()
+		end, opts)
+		vim.keymap.set("n", "]d", function()
+			vim.diagnostic.goto_next()
+		end, opts)
+		vim.keymap.set("n", "[d", function()
+			vim.diagnostic.goto_prev()
+		end, opts)
+	end,
 })
 
 vim.g.netrw_browse_split = 0

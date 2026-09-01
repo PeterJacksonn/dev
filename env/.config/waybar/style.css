@@ -7,21 +7,21 @@
 #waybar {
     background: rgba(16, 16, 16, 0.85);
     color: #c6d0f5;
-    margin: 6px 8px 0 8px;
+    margin: 3px 8px 0 8px;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 #workspaces {
-    margin: 4px 0px 4px 0px;
+    margin: 1px 0px 1px 0px;
     padding: 0;
     background: transparent;
 }
 
 #workspaces button {
     color: #6c7086;
-    padding: 0.3rem 0.85rem 0.3rem 0.55rem;
+    padding: 0.1rem 0.85rem 0.1rem 0.55rem;
     margin: 0 2px 0 0;
     border-radius: 8px;
 }
@@ -53,8 +53,8 @@
 #custom-lock,
 #custom-power {
     background: transparent;
-    padding: 0.4rem 0.85rem;
-    margin: 4px 2px;
+    padding: 0.15rem 0.85rem;
+    margin: 1px 2px;
     border-radius: 8px;
     transition: background 0.25s ease-in-out;
 }
@@ -120,8 +120,8 @@
 }
 
 #tray {
-    padding: 0.4rem 0.85rem;
-    margin: 4px 6px 4px 2px;
+    padding: 0.15rem 0.85rem;
+    margin: 1px 6px 1px 2px;
 }
 
 #mpris:hover {

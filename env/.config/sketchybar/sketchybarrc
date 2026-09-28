@@ -1,0 +1,58 @@
+#!/bin/bash
+export PATH="/opt/homebrew/bin:$PATH"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+# Rose Pine Moon
+BG=0xff232136
+FG=0xffe0def4
+ACCENT=0xffc4a7e7
+
+# if the notch looks weird, look up notch_display_height in the sketchybar docs
+sketchybar --bar position=top height=32 color=$BG padding_left=6 padding_right=6 sticky=on
+
+sketchybar --default \
+  updates=when_shown \
+  icon.font="Iosevka Comfy:Bold:14.0" \
+  label.font="Iosevka Comfy:Bold:13.0" \
+  icon.color=$FG \
+  label.color=$FG \
+  padding_left=4 \
+  padding_right=4
+
+# --- left: aerospace workspaces
+sketchybar --add event aerospace_workspace_change
+
+for sid in 1 2 3 4 5 6 7 8 9; do
+  sketchybar --add item space.$sid left \
+    --subscribe space.$sid aerospace_workspace_change \
+    --set space.$sid \
+      icon.drawing=off \
+      label="$sid" \
+      label.padding_left=8 \
+      label.padding_right=8 \
+      background.color=$ACCENT \
+      background.corner_radius=6 \
+      background.height=22 \
+      background.drawing=off \
+      click_script="aerospace workspace $sid" \
+      script="$PLUGIN_DIR/aerospace.sh $sid"
+done
+
+# --- left: focused app
+sketchybar --add item front_app left \
+  --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" padding_left=12 \
+  --subscribe front_app front_app_switched
+
+# --- right (first added = rightmost)
+sketchybar --add item clock right \
+  --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh"
+
+sketchybar --add item battery right \
+  --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+sketchybar --add item volume right \
+  --set volume script="$PLUGIN_DIR/volume.sh" \
+  --subscribe volume volume_change
+
+sketchybar --update

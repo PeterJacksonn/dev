@@ -4,6 +4,9 @@ background-opacity = 0.85
 background-blur = false
 confirm-close-surface = true
 
+# Fix for dock clutter on MacOS - this should be fine for Linux too
+quit-after-last-window-closed = true
+
 # normal font i usually use
 #font-family = "JetBrainsMono Nerd Font"
 

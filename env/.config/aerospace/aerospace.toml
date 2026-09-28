@@ -51,7 +51,6 @@ alt-shift-l = 'move right'
 alt-f = 'fullscreen'
 alt-v = 'layout floating tiling'                 # toggle floating
 alt-s = 'layout v_accordion'                     # i3 stacking
-alt-w = 'layout h_accordion'                     # i3 tabbed
 alt-t = 'layout tiles horizontal vertical'       # toggle split (hypr togglesplit)
 
 # workspaces

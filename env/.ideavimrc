@@ -5,6 +5,12 @@
 " !!!! READ THIS !!!!
 " ###################
 "
+"
+" FIX FOR MACOS!!!!!
+" ADD this to any complex modifications that mess with ideavim binds:
+" "^com\\.jetbrains\\.intellij$",
+" NAMELY: PC-Style reload, PC-Style Close Window, and PC-Style Redo
+"
 " Will document all the ones I remember:
 "
 " Ctrl+# -> open project tab/ file explorer thing

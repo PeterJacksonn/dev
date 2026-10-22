@@ -125,6 +125,7 @@ map <leader>R <Action>(RenameElement)
 map <leader>e <Action>(GotoNextError)
 map <leader>E <Action>(GotoPreviousError)
 map <leader>x <Action>(SplitVertically)
+nmap <leader>ow <Action>(EditSourceInNewWindow)
 map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>B <Action>(ViewBreakpoints)
 map <leader>G <Action>(Git.Branches)
@@ -162,3 +163,16 @@ nnoremap g, :action JumpToNextChange<Enter>zz
 " show suggestions and accept without having to use mouse
 nmap <leader>i :action ShowErrorDescription<CR>
 nmap <leader>I :action ShowIntentionActions<CR>
+
+
+" Telescope-style fuzzy finder mappings - for 'Fuzzier' Plugin
+
+" find any project file
+nmap <leader>pf <Action>(com.mituuz.fuzzier.search.Fuzzier)
+
+" find Git-tracked files only
+nmap <C-p> <Action>(com.mituuz.fuzzier.search.FuzzierVCS)
+
+" grep project (case-insensitive)
+nmap <leader>ps <Action>(com.mituuz.fuzzier.grep.FuzzyGrepCI)
+

@@ -1,4 +1,5 @@
 # AeroSpace config - ported from i3 (mod = Option, same as Mod1/Alt on i3)
+config-version = 2
 
 start-at-login = true
 after-login-command = []
@@ -9,25 +10,32 @@ exec-on-workspace-change = ['/bin/bash', '-c',
   '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
-focus-follows-mouse.enabled = false # true breaks fullscreen (videos etc)
+focus-follows-mouse.enabled = true
+# focus-follows-mouse.enabled = false
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 30
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+on-focused-monitor-changed = [
+  'move-mouse monitor-lazy-center',
+  'exec-and-forget /bin/bash -c "$HOME/.config/sketchybar/plugins/aerospace-displays.sh && /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change"'
+]
+
 automatically-unhide-macos-hidden-apps = false
 
 [key-mapping]
 preset = 'qwerty'
 
+# outer.top leaves room for sketchybar (bar height 32 + 4)
 [gaps]
 inner.horizontal = 2
 inner.vertical   = 2
 outer.left       = 2
 outer.bottom     = 2
-outer.top        = 2
 outer.right      = 2
+outer.top        = [ { monitor."built-in" = 2 }, 32 ]
 
 [mode.main.binding]
 # apps

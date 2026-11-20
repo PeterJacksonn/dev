@@ -8,7 +8,7 @@ FG=0xffe0def4
 ACCENT=0xffc4a7e7
 
 # if the notch looks weird, look up notch_display_height in the sketchybar docs
-sketchybar --bar position=top height=32 color=$BG padding_left=6 padding_right=6 sticky=on
+sketchybar --bar display=all position=top height=32 color=$BG padding_left=6 padding_right=6 sticky=on
 
 sketchybar --default \
   updates=when_shown \
@@ -37,6 +37,9 @@ for sid in 1 2 3 4 5 6 7 8 9 10; do
       click_script="aerospace workspace $sid" \
       script="$PLUGIN_DIR/aerospace.sh $sid"
 done
+
+# Assign workspaces to their respective monitor bars
+"$PLUGIN_DIR/aerospace-displays.sh"
 
 # --- left: focused app
 sketchybar --add item front_app left \
